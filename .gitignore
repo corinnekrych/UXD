@@ -1,0 +1,28 @@
+# Webpack output
+build/
+1-practical-exercises/part-2-HTML-CSS/public/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Output of 'npm pack'
+*.tgz
+

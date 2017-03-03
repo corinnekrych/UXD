@@ -1,0 +1,16 @@
+{
+  "name": "part-4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "question-1.js",
+  "scripts": {
+    "test": "node_modules/.bin/tape *-test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sinon": "^1.17.7",
+    "tape": "^4.6.3"
+  }
+}

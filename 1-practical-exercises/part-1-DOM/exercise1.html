@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Part1: DOM Manipulation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+        <style>
+            html { margin:11px }
+        </style>
+        <script charset="utf-8">
+            function countDown(limitedElementId, countElementId, max) {
+                var limitedElement = document.getElementById(limitedElementId);
+                var countElement = document.getElementById(countElementId);
+
+                if (limitedElement.value.length > max) {
+                    limitedElement.value = limitedElement.value.substring(0, max);
+                } else {
+                    countElement.innerHTML = (max - limitedElement.value.length) + ' character(s) to go.';
+                }
+            }
+        </script>
+    </head>
+    <body>
+    <main>
+        <textarea  id="title" maxlength="100" rows="4" cols="25"
+                   onkeyup="countDown('title', 'divcount', 100);"
+                   onkeydown="countDown('title', 'divcount', 100);"></textarea>
+        <div id="divcount">100 character(s) to go..</div>
+    </main>
+    </body>
+</html>
