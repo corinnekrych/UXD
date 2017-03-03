@@ -18,20 +18,20 @@ npm test
 
 ### Step 1
 To reproduce the 🐛
-* comment [line 4](question-1-test.js#4) and uncomment [line 3](question-1-test.js#3) in [question-1-test.js](question-1-test.js).
+* comment [line 4](question-1-test.js#L4) and uncomment [line 3](question-1-test.js#L3) in [question-1-test.js](question-1-test.js).
 * run test `npm test`, see the failure.
 
 To fix it:
-* comment [line 3](question-1-test.js#3) and uncomment [line 4](question-1-test.js#4) in [question-1-test.js](question-1-test.js).
+* comment [line 3](question-1-test.js#L3) and uncomment [line 4](question-1-test.js#L4) in [question-1-test.js](question-1-test.js).
 * run test `npm test`, see all tests passed.
 
 ### Step 2
 To reproduce the 🐜
-* comment [line 4](question-2-test.js#4) and uncomment [line 3](question-2-test.js#3) in [question-1-test.js](question-2-test.js).
+* comment [line 4](question-2-test.js#L4) and uncomment [line 3](question-2-test.js#L3) in [question-1-test.js](question-2-test.js).
 * run test `npm test`, see the failure.
 
 To fix it:
-* comment [line 3](question-2-test.js#3) and uncomment [line 4](question-2-test.js#4) in [question-1-test.js](question-2-test.js).
+* comment [line 3](question-2-test.js#L3) and uncomment [line 4](question-2-test.js#L4) in [question-1-test.js](question-2-test.js).
 * run test `npm test`, see all tests passed.
 
 ## License
