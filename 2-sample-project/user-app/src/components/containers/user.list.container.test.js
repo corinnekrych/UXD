@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import React, { Component } from 'react';
-import UserListContainer from './user.list.container';
+import { UserListContainer } from './user.list.container';
+import { Provider } from 'react-redux'
 
 describe('<UserListContainer />', () => {
   const user = {
@@ -29,14 +30,13 @@ describe('<UserListContainer />', () => {
   const users = [user];
 
   it('should render spinner when data not fetched', () => {
-    const wrapper = shallow(<UserListContainer />);
+    const wrapper = shallow( <UserListContainer />);
     expect(wrapper.debug()).toEqual('<div className="spinner" />');
   });
 
   it('should render one component with UserList', () => {
     const wrapper = shallow(<UserListContainer />);
-    wrapper.setState({fetched:true, users: users});
+    wrapper.setProps({fetched:true, users: users});
     expect(wrapper.debug()).toContain('UserList');
   });
-
 });

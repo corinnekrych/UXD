@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import React, { Component } from 'react';
-import UserContainer from './user.container';
+import { UserContainer } from './user.container';
+import User from '../views/user.view'
 
 describe('<UserContainer />', () => {
   const user = {
@@ -26,16 +27,17 @@ describe('<UserContainer />', () => {
     "username": "Karianne",
     "website": "kale.biz"
   };
-
+  const users = [user];
+  
   it('should render spinner when data not fetched', () => {
     const wrapper = shallow(<UserContainer />);
-    expect(wrapper.debug()).toEqual('<div className="spinner" />');
+    expect(wrapper.contains(<div className="spinner" />)).toBeTruthy();
   });
-
+  
   it('should render one component with UserList', () => {
     const wrapper = shallow(<UserContainer />);
-    wrapper.setState({fetched:true, user: user});
-    expect(wrapper.debug()).toContain('User');
+    wrapper.setProps({fetched: true, users: users, params: {userID: "4"}});
+    console.log(wrapper.html());
+    expect(wrapper.html()).toContain('<div type="text">Patricia Lebsack</div>');
   });
-
 });

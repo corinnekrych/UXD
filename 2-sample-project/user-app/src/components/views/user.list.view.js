@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import '../../../node_modules/patternfly/dist/css/patternfly.css';
 import '../../../node_modules/patternfly/dist/css/patternfly-additions.css'
 

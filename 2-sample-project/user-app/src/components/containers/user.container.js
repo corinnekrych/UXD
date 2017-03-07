@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
 import User from '../views/user.view'
 import * as api from '../../api/user.api'
+import { connect } from 'react-redux';
 
-class UserContainer extends Component {
-  state = {
-    fetched: false
-  };
+export class UserContainer extends Component {
+  
   componentDidMount() {
-    api.getUser(this.props.match.params.userID).then(user => this.setState({ user: user, fetched: true }));
+    this.props.dispatch(api.fetchUsers);
   }
+  
   render() {
-    if (!this.state.fetched) {
+    if (!this.props.fetched) {
       return (<div className='spinner'></div>);
     }
     return (
       <div>
-        <User user={this.state.user} />
+        <User user={this.props.users.find(e => e.id.toString() === this.props.params.userID)} />
       </div>
     );
   }
 }
+const mapStateToProps = function(store) {
+  if (store.fetched) {
+    return {
+      users: store.users,
+      fetched: store.fetched ? store.fetched: false
+    };
+  }
+  return {
+    fetched:  false
+  };
+};
 
-export default UserContainer;
+export default connect(mapStateToProps)(UserContainer);

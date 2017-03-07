@@ -18,8 +18,8 @@ function sortByNameDescending(slice) {
     return slice
   }
   return slice.sort(function sortName(a, b) {
-    var nameA = a.name.toUpperCase();
-    var nameB = b.name.toUpperCase();
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
     return nameA === nameB ? 0 : nameA < nameB ? 1 : -1;
   })
 }
@@ -32,16 +32,33 @@ function httpUsersCall() {
     }
   });
 }
+// define actions
+// TODO put in action.js file
+const shouldFetchUsers = (state) => {
+  if (!state.fetched) {
+    return true
+  }
+  return false
+};
 
-export function getUser(userId) {
-  return getUsers().then(function (users) {
-    return users.find(e => e.id.toString() === userId);
-  })
-}
+const receivedUsers = users => ({
+  type: 'GET_USERS_SUCCESS',
+  users,
+  fetched: true
+});
 
 export function getUsers() {
-  return httpUsersCall()
-    .then(checkStatus)
-    .then(parseJson)
-    .then(sortByNameDescending);
+  return dispatch => {
+    return httpUsersCall()
+      .then(checkStatus)
+      .then(parseJson)
+      .then(sortByNameDescending)
+      .then(users => dispatch(receivedUsers(users)));
+  }
 }
+
+export const fetchUsers = (dispatch, getState) => {
+  if (shouldFetchUsers(getState())) {
+    return dispatch(getUsers(getState()));
+  }
+};
