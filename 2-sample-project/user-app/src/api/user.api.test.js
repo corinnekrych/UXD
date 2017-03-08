@@ -4,19 +4,14 @@ import fetchMock from 'fetch-mock';
 const users = [{id: "1", name: "barbara"}, {id: "2", name: "adrian"}, {id: "3", name: "zoe"}];
 fetchMock.get('*', users);
 
-it('getUsers should return a sorted list of users', () => {
-  return api.getUsers()
-    .then(users => {
-      expect(users[0].name).toEqual("zoe");
-      expect(users[1].name).toEqual("barbara");
-      expect(users[2].name).toEqual("adrian");
+it('getUsers should return a sorted list of users', (done) => {
+  const fn = api.getUsers();
+  fn(value => { 
+    expect(value).toEqual({
+      type: 'GET_USERS_SUCCESS',
+      users: [users[2], users[0], users[1]],
+      fetched: true
     });
+    done();
+  })
 });
-
-it('getUser(id) should return one user', () => {
-  return api.getUser("3")
-    .then(u => {
-      expect(u.name).toEqual("zoe");
-    });
-});
-
