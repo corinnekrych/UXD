@@ -1,0 +1,18 @@
+  <h1>List of users</h1>
+      <div class="container-fluid container-pf-nav-pf-vertical">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="page-header">
+              <h1> {{title}}</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="list-group list-view-pf list-view-pf-view">
+             <app-user *ngFor="let user of users" [user]="user"></app-user>
+            </div>
+          </div>
+        </div>
+
+      </div>

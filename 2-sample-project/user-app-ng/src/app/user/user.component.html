@@ -1,0 +1,30 @@
+      <div class="list-group-item">
+        <div class="list-group-item-header">
+          <div class="list-view-pf-main-info">
+            <div class="list-view-pf-left">
+              <span class="fa fa-user list-view-pf-icon-sm"></span>
+            </div>
+            <div class="list-view-pf-body">
+              <div class="list-view-pf-description">
+                <div class="list-group-item-heading">
+                    <a href="" [routerLink]="['/user', user.id]">{{user.name}}</a>             
+                </div>
+              </div>
+              <div class="list-view-pf-additional-info">
+                <div class="list-view-pf-additional-info-item">
+                  {{user.username}},
+                </div>
+                <div class="list-view-pf-additional-info-item">
+                  {{user.email}}
+                </div>
+                <div class="list-view-pf-additional-info-item">
+                  <div class="clearfix">
+                    <div>{{user.address.street}}</div>
+                    <div>{{user.address.city}}, {{user.address.country}} {{user.address.zipCode}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
